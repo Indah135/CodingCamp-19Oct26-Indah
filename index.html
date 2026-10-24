@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="id" data-theme="light">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Life Dashboard</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+
+  <!-- ===== HEADER ===== -->
+  <header class="header">
+    <div class="header-left">
+      <div class="greeting-wrap">
+        <p class="greeting-text" id="greeting">Selamat Pagi</p>
+        <button class="name-edit-btn" id="nameEditBtn" title="Ubah nama">
+          <span id="usernameDisplay">!</span>
+          <svg class="icon-pencil" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"/>
+            <path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"/>
+          </svg>
+        </button>
+      </div>
+      <div class="name-input-wrap hidden" id="nameInputWrap">
+        <input type="text" id="nameInput" class="name-input" placeholder="Nama kamu..." maxlength="30" />
+        <button class="btn btn-sm btn-accent" id="nameSaveBtn">Simpan</button>
+        <button class="btn btn-sm btn-ghost" id="nameCancelBtn">Batal</button>
+      </div>
+    </div>
+
+    <div class="header-right">
+      <div class="clock-wrap">
+        <div class="clock-time" id="clockTime">00:00:00</div>
+        <div class="clock-date" id="clockDate">Sabtu, 1 Januari 2000</div>
+      </div>
+      <button class="theme-toggle" id="themeToggle" title="Ganti tema" aria-label="Ganti tema">
+        <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <circle cx="12" cy="12" r="5"/>
+          <line x1="12" y1="1" x2="12" y2="3"/>
+          <line x1="12" y1="21" x2="12" y2="23"/>
+          <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/>
+          <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/>
+          <line x1="1" y1="12" x2="3" y2="12"/>
+          <line x1="21" y1="12" x2="23" y2="12"/>
+          <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/>
+          <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/>
+        </svg>
+        <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
+        </svg>
+      </button>
+    </div>
+  </header>
+
+  <!-- ===== MAIN ===== -->
+  <main class="main-grid">
+
+    <!-- === TIMER WIDGET === -->
+    <section class="widget widget-timer" aria-label="Focus Timer">
+      <h2 class="widget-title">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="widget-icon">
+          <circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/>
+        </svg>
+        Focus Timer
+      </h2>
+
+      <div class="timer-ring-wrap">
+        <svg class="timer-ring" viewBox="0 0 200 200" aria-hidden="true">
+          <circle class="ring-bg" cx="100" cy="100" r="88"/>
+          <circle class="ring-progress" id="ringProgress" cx="100" cy="100" r="88"/>
+        </svg>
+        <div class="timer-display" id="timerDisplay">25:00</div>
+      </div>
+
+      <div class="timer-controls">
+        <button class="btn btn-accent" id="timerStartBtn">
+          <svg viewBox="0 0 24 24" fill="currentColor" class="btn-icon"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+          Start
+        </button>
+        <button class="btn btn-ghost" id="timerStopBtn" disabled>
+          <svg viewBox="0 0 24 24" fill="currentColor" class="btn-icon"><rect x="6" y="4" width="4" height="16"/><rect x="14" y="4" width="4" height="16"/></svg>
+          Pause
+        </button>
+        <button class="btn btn-ghost" id="timerResetBtn">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="btn-icon">
+            <polyline points="1 4 1 10 7 10"/><path d="M3.51 15a9 9 0 1 0 .49-4.95"/>
+          </svg>
+          Reset
+        </button>
+      </div>
+
+      <p class="timer-label" id="timerLabel">Fokus selama 25 menit</p>
+    </section>
+
+    <!-- === TODO WIDGET === -->
+    <section class="widget widget-todo" aria-label="To-Do List">
+      <h2 class="widget-title">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="widget-icon">
+          <polyline points="9 11 12 14 22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/>
+        </svg>
+        To-Do List
+      </h2>
+
+      <div class="todo-input-row">
+        <input
+          type="text"
+          id="todoInput"
+          class="input-field"
+          placeholder="Tambah tugas baru..."
+          maxlength="100"
+          autocomplete="off"
+        />
+        <button class="btn btn-accent" id="todoAddBtn" title="Tambah tugas">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" class="btn-icon">
+            <line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/>
+          </svg>
+        </button>
+      </div>
+      <p class="duplicate-msg hidden" id="duplicateMsg">⚠ Tugas ini sudah ada dalam daftar.</p>
+
+      <div class="todo-stats" id="todoStats"></div>
+
+      <ul class="todo-list" id="todoList" aria-live="polite">
+        <!-- items rendered by JS -->
+      </ul>
+    </section>
+
+    <!-- === QUICK LINKS WIDGET === -->
+    <section class="widget widget-links" aria-label="Quick Links">
+      <h2 class="widget-title">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="widget-icon">
+          <path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/>
+          <path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/>
+        </svg>
+        Quick Links
+      </h2>
+
+      <div class="links-add-row">
+        <input type="text"  id="linkNameInput" class="input-field" placeholder="Nama situs" maxlength="30" autocomplete="off" />
+        <input type="url"   id="linkUrlInput"  class="input-field" placeholder="https://..." autocomplete="off" />
+        <button class="btn btn-accent" id="linkAddBtn" title="Tambah link">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" class="btn-icon">
+            <line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/>
+          </svg>
+        </button>
+      </div>
+      <p class="link-error hidden" id="linkError"></p>
+
+      <div class="links-grid" id="linksGrid" aria-live="polite">
+        <!-- items rendered by JS -->
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="footer">
+    <p>Life Dashboard &mdash; Data tersimpan di browser kamu.</p>
+  </footer>
+
+  <script src="js/app.js"></script>
+</body>
+</html>
