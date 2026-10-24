@@ -13,7 +13,7 @@ A clean and minimalist personal productivity dashboard that runs entirely in the
 
 ## Tech Stack
 
-- Pure **HTML**, **CSS**, and **JavaScript** — no React, Vue, or any framework
+- Pure **HTML**, **CSS**, and **JavaScript** 
 - All data persisted in **Local Storage**
 - Works in all modern browsers (Chrome, Firefox, Edge, Safari)
 
