@@ -12,9 +12,9 @@
   --text-primary:  #1a202c;
   --text-secondary:#4a5568;
   --text-muted:    #718096;
-  --accent:        #6366f1;
-  --accent-hover:  #4f46e5;
-  --accent-light:  #eef2ff;
+  --accent:        #4a90d9;
+  --accent-hover:  #2f78c5;
+  --accent-light:  #e8f3fc;
   --danger:        #ef4444;
   --danger-hover:  #dc2626;
   --success:       #22c55e;
@@ -26,7 +26,7 @@
 
   /* Timer ring */
   --ring-bg:       #e2e8f0;
-  --ring-stroke:   #6366f1;
+  --ring-stroke:   #4a90d9;
 
   /* Spacing */
   --space-xs:  4px;
@@ -61,9 +61,9 @@
   --text-primary:  #f1f5f9;
   --text-secondary:#cbd5e1;
   --text-muted:    #94a3b8;
-  --accent:        #818cf8;
-  --accent-hover:  #6366f1;
-  --accent-light:  #1e1b4b;
+  --accent:        #60a5fa;
+  --accent-hover:  #4a90d9;
+  --accent-light:  #1e3a5f;
   --danger:        #f87171;
   --danger-hover:  #ef4444;
   --success:       #4ade80;
@@ -73,7 +73,7 @@
   --shadow-md:     0 4px 12px rgba(0,0,0,.35);
   --shadow-lg:     0 10px 25px rgba(0,0,0,.4);
   --ring-bg:       #334155;
-  --ring-stroke:   #818cf8;
+  --ring-stroke:   #60a5fa;
 }
 
 
@@ -140,7 +140,7 @@ svg { display: block; flex-shrink: 0; }
 }
 .btn-accent:hover:not(:disabled) {
   background: var(--accent-hover);
-  box-shadow: 0 4px 12px rgba(99,102,241,.35);
+  box-shadow: 0 4px 12px rgba(74,144,217,.35);
 }
 
 .btn-ghost {
@@ -196,7 +196,7 @@ svg { display: block; flex-shrink: 0; }
 .input-field::placeholder { color: var(--text-muted); }
 .input-field:focus {
   border-color: var(--accent);
-  box-shadow: 0 0 0 3px rgba(99,102,241,.15);
+  box-shadow: 0 0 0 3px rgba(74,144,217,.15);
 }
 
 

@@ -116,10 +116,11 @@ const DAYS_ID = [
 ];
 
 function getGreeting(hour) {
-  if (hour >= 5  && hour < 12) return 'Selamat Pagi';
-  if (hour >= 12 && hour < 15) return 'Selamat Siang';
-  if (hour >= 15 && hour < 18) return 'Selamat Sore';
-  return 'Selamat Malam';
+  if (hour >= 5  && hour < 12) return { text: 'Selamat Pagi',  emoji: '🌤️' };
+  if (hour >= 12 && hour < 15) return { text: 'Selamat Siang', emoji: '☀️' };
+  if (hour >= 15 && hour < 18) return { text: 'Selamat Sore',  emoji: '🌇' };
+  if (hour >= 18 && hour < 21) return { text: 'Selamat Malam', emoji: '🌆' };
+  return { text: 'Selamat Malam',  emoji: '🌙' };
 }
 
 function formatDate(date) {
@@ -143,7 +144,8 @@ function updateClock() {
 
   // Update greeting text (excluding username part)
   const greetingEl = document.getElementById('greeting');
-  greetingEl.textContent = getGreeting(now.getHours());
+  const { text, emoji } = getGreeting(now.getHours());
+  greetingEl.textContent = `${emoji} ${text}`;
 }
 
 function initClock() {
